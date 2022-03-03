@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body onload="mainFunction()">
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <script>
+      function mainFunction() {
+        let x = inputNumber();
+        console.log(x);
+      	let y = inputNumber();
+        console.log(y);
+        getAverage(x,y);
+        let z = inputNumber();
+        console.log(z);
+        checkInterval(x,y,z)
+      }
+
+      function getAverage(a,b) {
+        console.log(a + " " + b);
+        let average = (+a + +b)/2;
+        document.getElementById('div1').innerHTML = "The average of " + a + " and " + b + " is " + average;
+      }
+
+      function checkInterval(a,b,c) {
+        let checker = "FALSE"
+        console.log(a + " " + b + " " + c);
+        if(+a < +b || +a > +b) {
+          if(+a < +c && +c < +b || +a > +c && +c > +b) {
+            window.alert("TRUE")
+            checker = "TRUE"
+          }
+          else {
+            window.alert("FALSE")
+          }
+        }
+        else if(a = b){
+          window.alert("The first and second number are equal. Please choose another number.") 
+        }
+        document.getElementById('div2').innerHTML = "The number " + c + " inside the interval " + "[" + a + "," + b + "]. " + checker;
+      }
+
+      function inputNumber() {
+        let num = prompt("Enter a number:", );
+        let numCheck = isNaN(num);
+        if(numCheck == true) {
+          window.alert("Input is not a number. Try again.")
+          location.reload();
+        }
+        return num;
+      }
+    </script>
+  </body>
+</html>
